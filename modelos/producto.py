@@ -1,8 +1,9 @@
-# Representa un producto dentro del inventario de la tienda.
-# Cada producto tiene un ID único, nombre, cantidad y precio.
+# ============================================
+# MODELO: Producto
+# Representa un producto del inventario
+# ============================================
 
 class Producto:
-    
 
     def __init__(self, id_producto, nombre, cantidad, precio):
         self.__id = id_producto
@@ -10,8 +11,7 @@ class Producto:
         self.__cantidad = cantidad
         self.__precio = precio
 
-     # GETTERS (MÉTODOS DE ACCESO O CONSULTA)
-
+    # -------- GETTERS --------
     def get_id(self):
         return self.__id
 
@@ -24,8 +24,7 @@ class Producto:
     def get_precio(self):
         return self.__precio
 
-    # SETTERS (MÉTODOS DE MODIFICACIÓN CONTROLADA)
-
+    # -------- SETTERS --------
     def set_nombre(self, nombre):
         self.__nombre = nombre
 
@@ -33,14 +32,19 @@ class Producto:
         if cantidad >= 0:
             self.__cantidad = cantidad
         else:
-            print("La cantidad no puede ser negativa.")
+            print("⚠️ La cantidad no puede ser negativa")
 
     def set_precio(self, precio):
         if precio >= 0:
             self.__precio = precio
         else:
-            print("El precio no puede ser negativo.")
+            print("⚠️ El precio no puede ser negativo")
 
-     # REPRESENTACIÓN DEL OBJETO
+    # -------- STR --------
     def __str__(self):
-        return f"ID: {self.__id} | Nombre: {self.__nombre} | Cantidad: {self.__cantidad} | Precio: ${self.__precio:.2f}"
+        return (
+            f"[{self.__id}] "
+            f"{self.__nombre} | "
+            f"Cantidad: {self.__cantidad} | "
+            f"${self.__precio:.2f}"
+        )
